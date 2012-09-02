@@ -1,0 +1,409 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		74E2F36415F04E4800D21D1A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E2F36315F04E4800D21D1A /* UIKit.framework */; };
+		74E2F36615F04E4800D21D1A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E2F36515F04E4800D21D1A /* Foundation.framework */; };
+		74E2F36815F04E4800D21D1A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E2F36715F04E4800D21D1A /* CoreGraphics.framework */; };
+		74E2F36E15F04E4800D21D1A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 74E2F36C15F04E4800D21D1A /* InfoPlist.strings */; };
+		74E2F37015F04E4800D21D1A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E2F36F15F04E4800D21D1A /* main.m */; };
+		74E2F3A415F04F7F00D21D1A /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E2F38B15F04F7F00D21D1A /* MainViewController.m */; };
+		74E2F3A615F04F7F00D21D1A /* QBContactsMultiPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E2F38F15F04F7F00D21D1A /* QBContactsMultiPickerController.m */; };
+		74E2F3A815F04F7F00D21D1A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E2F39415F04F7F00D21D1A /* AppDelegate.m */; };
+		74E2F3A915F04F7F00D21D1A /* QBAddressBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E2F39715F04F7F00D21D1A /* QBAddressBook.m */; };
+		74E2F3AE15F04F7F00D21D1A /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74E2F3A115F04F7F00D21D1A /* MainViewController.xib */; };
+		74E2F3AF15F04F7F00D21D1A /* QBPeoplePickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74E2F3A215F04F7F00D21D1A /* QBPeoplePickerController.xib */; };
+		74E2F3B215F04FC900D21D1A /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E2F3B015F04FC900D21D1A /* AddressBook.framework */; };
+		74E2F3B315F04FC900D21D1A /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E2F3B115F04FC900D21D1A /* AddressBookUI.framework */; };
+		74E2F3C215F0514600D21D1A /* checkBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E2F3BE15F0514600D21D1A /* checkBox.png */; };
+		74E2F3C315F0514600D21D1A /* checkBox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E2F3BF15F0514600D21D1A /* checkBox@2x.png */; };
+		74E2F3C415F0514600D21D1A /* uncheckBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E2F3C015F0514600D21D1A /* uncheckBox.png */; };
+		74E2F3C515F0514600D21D1A /* uncheckBox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E2F3C115F0514600D21D1A /* uncheckBox@2x.png */; };
+		74E2F47415F0786400D21D1A /* UIImage+QBUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E2F47315F0786400D21D1A /* UIImage+QBUtilities.m */; };
+		74E2F47715F0789D00D21D1A /* NSString+QBUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E2F47615F0789D00D21D1A /* NSString+QBUtilities.m */; };
+		74E2F48815F0904700D21D1A /* iconDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E2F48715F0904700D21D1A /* iconDefault.png */; };
+		74E2F48A15F0904C00D21D1A /* iconDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E2F48915F0904C00D21D1A /* iconDefault@2x.png */; };
+		74E2F48D15F099FE00D21D1A /* blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E2F48B15F099FE00D21D1A /* blank.png */; };
+		74E2F48E15F099FE00D21D1A /* blank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E2F48C15F099FE00D21D1A /* blank@2x.png */; };
+		74E2F49615F09A9E00D21D1A /* QBNameButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E2F49515F09A9E00D21D1A /* QBNameButton.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		74E2F35F15F04E4800D21D1A /* QBContactPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QBContactPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		74E2F36315F04E4800D21D1A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		74E2F36515F04E4800D21D1A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		74E2F36715F04E4800D21D1A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		74E2F36B15F04E4800D21D1A /* QBContactPicker-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QBContactPicker-Info.plist"; sourceTree = "<group>"; };
+		74E2F36F15F04E4800D21D1A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		74E2F37115F04E4800D21D1A /* QBContactPicker-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QBContactPicker-Prefix.pch"; sourceTree = "<group>"; };
+		74E2F38A15F04F7F00D21D1A /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		74E2F38B15F04F7F00D21D1A /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		74E2F38E15F04F7F00D21D1A /* QBContactsMultiPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBContactsMultiPickerController.h; sourceTree = "<group>"; };
+		74E2F38F15F04F7F00D21D1A /* QBContactsMultiPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBContactsMultiPickerController.m; sourceTree = "<group>"; };
+		74E2F39315F04F7F00D21D1A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		74E2F39415F04F7F00D21D1A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		74E2F39615F04F7F00D21D1A /* QBAddressBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAddressBook.h; sourceTree = "<group>"; };
+		74E2F39715F04F7F00D21D1A /* QBAddressBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBAddressBook.m; sourceTree = "<group>"; };
+		74E2F3A115F04F7F00D21D1A /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		74E2F3A215F04F7F00D21D1A /* QBPeoplePickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QBPeoplePickerController.xib; sourceTree = "<group>"; };
+		74E2F3B015F04FC900D21D1A /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		74E2F3B115F04FC900D21D1A /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		74E2F3BE15F0514600D21D1A /* checkBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkBox.png; sourceTree = "<group>"; };
+		74E2F3BF15F0514600D21D1A /* checkBox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkBox@2x.png"; sourceTree = "<group>"; };
+		74E2F3C015F0514600D21D1A /* uncheckBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uncheckBox.png; sourceTree = "<group>"; };
+		74E2F3C115F0514600D21D1A /* uncheckBox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uncheckBox@2x.png"; sourceTree = "<group>"; };
+		74E2F47215F0786400D21D1A /* UIImage+QBUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+QBUtilities.h"; sourceTree = "<group>"; };
+		74E2F47315F0786400D21D1A /* UIImage+QBUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+QBUtilities.m"; sourceTree = "<group>"; };
+		74E2F47615F0789D00D21D1A /* NSString+QBUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+QBUtilities.m"; sourceTree = "<group>"; };
+		74E2F47F15F07BD500D21D1A /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		74E2F48015F07C0600D21D1A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		74E2F48115F07C4900D21D1A /* NSString+QBUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+QBUtilities.h"; sourceTree = "<group>"; };
+		74E2F48715F0904700D21D1A /* iconDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconDefault.png; path = ../iconDefault.png; sourceTree = "<group>"; };
+		74E2F48915F0904C00D21D1A /* iconDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iconDefault@2x.png"; path = "../iconDefault@2x.png"; sourceTree = "<group>"; };
+		74E2F48B15F099FE00D21D1A /* blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank.png; sourceTree = "<group>"; };
+		74E2F48C15F099FE00D21D1A /* blank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blank@2x.png"; sourceTree = "<group>"; };
+		74E2F49415F09A9E00D21D1A /* QBNameButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBNameButton.h; sourceTree = "<group>"; };
+		74E2F49515F09A9E00D21D1A /* QBNameButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBNameButton.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		74E2F35C15F04E4800D21D1A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74E2F3B215F04FC900D21D1A /* AddressBook.framework in Frameworks */,
+				74E2F3B315F04FC900D21D1A /* AddressBookUI.framework in Frameworks */,
+				74E2F36415F04E4800D21D1A /* UIKit.framework in Frameworks */,
+				74E2F36615F04E4800D21D1A /* Foundation.framework in Frameworks */,
+				74E2F36815F04E4800D21D1A /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		74E2F35415F04E4800D21D1A = {
+			isa = PBXGroup;
+			children = (
+				74E2F36915F04E4800D21D1A /* QBContactPicker */,
+				74E2F36215F04E4800D21D1A /* Frameworks */,
+				74E2F36015F04E4800D21D1A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		74E2F36015F04E4800D21D1A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				74E2F35F15F04E4800D21D1A /* QBContactPicker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		74E2F36215F04E4800D21D1A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				74E2F3B015F04FC900D21D1A /* AddressBook.framework */,
+				74E2F3B115F04FC900D21D1A /* AddressBookUI.framework */,
+				74E2F36315F04E4800D21D1A /* UIKit.framework */,
+				74E2F36515F04E4800D21D1A /* Foundation.framework */,
+				74E2F36715F04E4800D21D1A /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		74E2F36915F04E4800D21D1A /* QBContactPicker */ = {
+			isa = PBXGroup;
+			children = (
+				74E2F47115F0782700D21D1A /* Additions */,
+				74E2F38715F04F7F00D21D1A /* Controllers */,
+				74E2F39215F04F7F00D21D1A /* Delegate */,
+				74E2F39515F04F7F00D21D1A /* Models */,
+				74E2F3BD15F0513E00D21D1A /* Resources */,
+				74E2F49315F09A8B00D21D1A /* Views */,
+				74E2F39F15F04F7F00D21D1A /* Xibs */,
+				74E2F36A15F04E4800D21D1A /* Supporting Files */,
+				74E2F38A15F04F7F00D21D1A /* MainViewController.h */,
+				74E2F38B15F04F7F00D21D1A /* MainViewController.m */,
+			);
+			path = QBContactPicker;
+			sourceTree = "<group>";
+		};
+		74E2F36A15F04E4800D21D1A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				74E2F48915F0904C00D21D1A /* iconDefault@2x.png */,
+				74E2F48715F0904700D21D1A /* iconDefault.png */,
+				74E2F36B15F04E4800D21D1A /* QBContactPicker-Info.plist */,
+				74E2F36C15F04E4800D21D1A /* InfoPlist.strings */,
+				74E2F36F15F04E4800D21D1A /* main.m */,
+				74E2F37115F04E4800D21D1A /* QBContactPicker-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		74E2F38715F04F7F00D21D1A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				74E2F38E15F04F7F00D21D1A /* QBContactsMultiPickerController.h */,
+				74E2F38F15F04F7F00D21D1A /* QBContactsMultiPickerController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		74E2F39215F04F7F00D21D1A /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				74E2F39315F04F7F00D21D1A /* AppDelegate.h */,
+				74E2F39415F04F7F00D21D1A /* AppDelegate.m */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		74E2F39515F04F7F00D21D1A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				74E2F39615F04F7F00D21D1A /* QBAddressBook.h */,
+				74E2F39715F04F7F00D21D1A /* QBAddressBook.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		74E2F39F15F04F7F00D21D1A /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				74E2F3A115F04F7F00D21D1A /* MainViewController.xib */,
+				74E2F3A215F04F7F00D21D1A /* QBPeoplePickerController.xib */,
+			);
+			path = Xibs;
+			sourceTree = "<group>";
+		};
+		74E2F3BD15F0513E00D21D1A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				74E2F48B15F099FE00D21D1A /* blank.png */,
+				74E2F48C15F099FE00D21D1A /* blank@2x.png */,
+				74E2F3BE15F0514600D21D1A /* checkBox.png */,
+				74E2F3BF15F0514600D21D1A /* checkBox@2x.png */,
+				74E2F3C015F0514600D21D1A /* uncheckBox.png */,
+				74E2F3C115F0514600D21D1A /* uncheckBox@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		74E2F47115F0782700D21D1A /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				74E2F48115F07C4900D21D1A /* NSString+QBUtilities.h */,
+				74E2F47615F0789D00D21D1A /* NSString+QBUtilities.m */,
+				74E2F47215F0786400D21D1A /* UIImage+QBUtilities.h */,
+				74E2F47315F0786400D21D1A /* UIImage+QBUtilities.m */,
+			);
+			path = Additions;
+			sourceTree = "<group>";
+		};
+		74E2F49315F09A8B00D21D1A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				74E2F49415F09A9E00D21D1A /* QBNameButton.h */,
+				74E2F49515F09A9E00D21D1A /* QBNameButton.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		74E2F35E15F04E4800D21D1A /* QBContactPicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74E2F38315F04E4800D21D1A /* Build configuration list for PBXNativeTarget "QBContactPicker" */;
+			buildPhases = (
+				74E2F35B15F04E4800D21D1A /* Sources */,
+				74E2F35C15F04E4800D21D1A /* Frameworks */,
+				74E2F35D15F04E4800D21D1A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QBContactPicker;
+			productName = conthumb;
+			productReference = 74E2F35F15F04E4800D21D1A /* QBContactPicker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		74E2F35615F04E4800D21D1A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "TABKO Inc.";
+			};
+			buildConfigurationList = 74E2F35915F04E4800D21D1A /* Build configuration list for PBXProject "QBContactPicker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 74E2F35415F04E4800D21D1A;
+			productRefGroup = 74E2F36015F04E4800D21D1A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				74E2F35E15F04E4800D21D1A /* QBContactPicker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		74E2F35D15F04E4800D21D1A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74E2F36E15F04E4800D21D1A /* InfoPlist.strings in Resources */,
+				74E2F3AE15F04F7F00D21D1A /* MainViewController.xib in Resources */,
+				74E2F3AF15F04F7F00D21D1A /* QBPeoplePickerController.xib in Resources */,
+				74E2F3C215F0514600D21D1A /* checkBox.png in Resources */,
+				74E2F3C315F0514600D21D1A /* checkBox@2x.png in Resources */,
+				74E2F3C415F0514600D21D1A /* uncheckBox.png in Resources */,
+				74E2F3C515F0514600D21D1A /* uncheckBox@2x.png in Resources */,
+				74E2F48815F0904700D21D1A /* iconDefault.png in Resources */,
+				74E2F48A15F0904C00D21D1A /* iconDefault@2x.png in Resources */,
+				74E2F48D15F099FE00D21D1A /* blank.png in Resources */,
+				74E2F48E15F099FE00D21D1A /* blank@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		74E2F35B15F04E4800D21D1A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74E2F37015F04E4800D21D1A /* main.m in Sources */,
+				74E2F3A415F04F7F00D21D1A /* MainViewController.m in Sources */,
+				74E2F3A615F04F7F00D21D1A /* QBContactsMultiPickerController.m in Sources */,
+				74E2F3A815F04F7F00D21D1A /* AppDelegate.m in Sources */,
+				74E2F3A915F04F7F00D21D1A /* QBAddressBook.m in Sources */,
+				74E2F47415F0786400D21D1A /* UIImage+QBUtilities.m in Sources */,
+				74E2F47715F0789D00D21D1A /* NSString+QBUtilities.m in Sources */,
+				74E2F49615F09A9E00D21D1A /* QBNameButton.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		74E2F36C15F04E4800D21D1A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				74E2F47F15F07BD500D21D1A /* ko */,
+				74E2F48015F07C0600D21D1A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		74E2F38115F04E4800D21D1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		74E2F38215F04E4800D21D1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		74E2F38415F04E4800D21D1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QBContactPicker/QBContactPicker-Prefix.pch";
+				INFOPLIST_FILE = "QBContactPicker/QBContactPicker-Info.plist";
+				PRODUCT_NAME = QBContactPicker;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		74E2F38515F04E4800D21D1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QBContactPicker/QBContactPicker-Prefix.pch";
+				INFOPLIST_FILE = "QBContactPicker/QBContactPicker-Info.plist";
+				PRODUCT_NAME = QBContactPicker;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		74E2F35915F04E4800D21D1A /* Build configuration list for PBXProject "QBContactPicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74E2F38115F04E4800D21D1A /* Debug */,
+				74E2F38215F04E4800D21D1A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		74E2F38315F04E4800D21D1A /* Build configuration list for PBXNativeTarget "QBContactPicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74E2F38415F04E4800D21D1A /* Debug */,
+				74E2F38515F04E4800D21D1A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 74E2F35615F04E4800D21D1A /* Project object */;
+}
