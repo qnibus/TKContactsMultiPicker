@@ -26,8 +26,6 @@
 		74E2F3C515F0514600D21D1A /* uncheckBox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E2F3C115F0514600D21D1A /* uncheckBox@2x.png */; };
 		74E2F47415F0786400D21D1A /* UIImage+TKUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E2F47315F0786400D21D1A /* UIImage+TKUtilities.m */; };
 		74E2F47715F0789D00D21D1A /* NSString+TKUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E2F47615F0789D00D21D1A /* NSString+TKUtilities.m */; };
-		74E2F48815F0904700D21D1A /* iconDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E2F48715F0904700D21D1A /* iconDefault.png */; };
-		74E2F48A15F0904C00D21D1A /* iconDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E2F48915F0904C00D21D1A /* iconDefault@2x.png */; };
 		74E2F48D15F099FE00D21D1A /* blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E2F48B15F099FE00D21D1A /* blank.png */; };
 		74E2F48E15F099FE00D21D1A /* blank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E2F48C15F099FE00D21D1A /* blank@2x.png */; };
 /* End PBXBuildFile section */
@@ -62,8 +60,6 @@
 		74E2F47F15F07BD500D21D1A /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		74E2F48015F07C0600D21D1A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		74E2F48115F07C4900D21D1A /* NSString+TKUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TKUtilities.h"; sourceTree = "<group>"; };
-		74E2F48715F0904700D21D1A /* iconDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconDefault.png; path = ../iconDefault.png; sourceTree = "<group>"; };
-		74E2F48915F0904C00D21D1A /* iconDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iconDefault@2x.png"; path = "../iconDefault@2x.png"; sourceTree = "<group>"; };
 		74E2F48B15F099FE00D21D1A /* blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank.png; sourceTree = "<group>"; };
 		74E2F48C15F099FE00D21D1A /* blank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blank@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,8 +128,6 @@
 		74E2F36A15F04E4800D21D1A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				74E2F48915F0904C00D21D1A /* iconDefault@2x.png */,
-				74E2F48715F0904700D21D1A /* iconDefault.png */,
 				74E2F36B15F04E4800D21D1A /* TKContactPicker-Info.plist */,
 				74E2F36C15F04E4800D21D1A /* InfoPlist.strings */,
 				74E2F36F15F04E4800D21D1A /* main.m */,
@@ -260,8 +254,6 @@
 				74E2F3C315F0514600D21D1A /* checkBox@2x.png in Resources */,
 				74E2F3C415F0514600D21D1A /* uncheckBox.png in Resources */,
 				74E2F3C515F0514600D21D1A /* uncheckBox@2x.png in Resources */,
-				74E2F48815F0904700D21D1A /* iconDefault.png in Resources */,
-				74E2F48A15F0904C00D21D1A /* iconDefault@2x.png in Resources */,
 				74E2F48D15F099FE00D21D1A /* blank.png in Resources */,
 				74E2F48E15F099FE00D21D1A /* blank@2x.png in Resources */,
 			);
