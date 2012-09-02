@@ -28,7 +28,7 @@
     
 @private
     NSUInteger _selectedCount;
-    NSMutableArray *_addressBooks;
+    NSMutableArray *_listContent;
 	NSMutableArray *_filteredListContent;
 }
 
@@ -41,7 +41,6 @@
 @property (nonatomic, copy) NSString *savedSearchTerm;
 @property (nonatomic) NSInteger savedScopeButtonIndex;
 @property (nonatomic) BOOL searchWasActive;
-@property (nonatomic) BOOL showModal;
 
 
 @end

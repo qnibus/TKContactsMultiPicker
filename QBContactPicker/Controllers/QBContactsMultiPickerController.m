@@ -24,7 +24,6 @@
 @synthesize savedScopeButtonIndex = _savedScopeButtonIndex;
 @synthesize searchWasActive = _searchWasActive;
 @synthesize searchBar = _searchBar;
-@synthesize showModal = _showModal;
 @synthesize navigationBar;
 @synthesize navigationItem;
 
@@ -35,7 +34,7 @@
 {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
         _selectedCount = 0;
-        _addressBooks = [NSMutableArray new];
+        _listContent = [NSMutableArray new];
         _filteredListContent = [NSMutableArray new];
     }
     return self;
@@ -183,7 +182,7 @@
     
     for (NSMutableArray *sectionArray in sectionArrays) {
         NSArray *sortedSection = [theCollation sortedArrayFromArray:sectionArray collationStringSelector:@selector(name)];
-        [_addressBooks addObject:sortedSection];
+        [_listContent addObject:sortedSection];
     }
 }
 
@@ -224,7 +223,7 @@
 	if (tableView == self.searchDisplayController.searchResultsTableView) {
         return 1;
 	} else {
-        return [_addressBooks count];
+        return [_listContent count];
     }
 }
 
@@ -233,7 +232,7 @@
 	if (tableView == self.searchDisplayController.searchResultsTableView) {
         return nil;
     } else {
-        return [[_addressBooks objectAtIndex:section] count] ? [[[UILocalizedIndexedCollation currentCollation] sectionTitles] objectAtIndex:section] : nil;
+        return [[_listContent objectAtIndex:section] count] ? [[[UILocalizedIndexedCollation currentCollation] sectionTitles] objectAtIndex:section] : nil;
     }
 }
 
@@ -241,7 +240,7 @@
 {
     if (tableView == self.searchDisplayController.searchResultsTableView)
         return 0;
-    return [[_addressBooks objectAtIndex:section] count] ? tableView.sectionHeaderHeight : 0;
+    return [[_listContent objectAtIndex:section] count] ? tableView.sectionHeaderHeight : 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -249,7 +248,7 @@
 	if (tableView == self.searchDisplayController.searchResultsTableView) {
         return [_filteredListContent count];
     } else {
-        return [[_addressBooks objectAtIndex:section] count];
+        return [[_listContent objectAtIndex:section] count];
     }
 }
 
@@ -268,7 +267,7 @@
 	if (tableView == self.searchDisplayController.searchResultsTableView)
         addressBook = (QBAddressBook *)[_filteredListContent objectAtIndex:indexPath.row];
 	else
-        addressBook = (QBAddressBook *)[[_addressBooks objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+        addressBook = (QBAddressBook *)[[_listContent objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     
     if ([[addressBook.name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] > 0) {
         cell.textLabel.text = addressBook.name;
@@ -310,7 +309,7 @@
 	if (tableView == self.searchDisplayController.searchResultsTableView)
 		addressBook = (QBAddressBook*)[_filteredListContent objectAtIndex:indexPath.row];
 	else
-        addressBook = (QBAddressBook*)[[_addressBooks objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+        addressBook = (QBAddressBook*)[[_listContent objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     
     BOOL checked = !addressBook.rowSelected;
     addressBook.rowSelected = checked;
@@ -349,7 +348,7 @@
 - (IBAction)saveAction:(id)sender
 {
 	NSMutableArray *objects = [NSMutableArray new];
-    for (NSArray *section in _addressBooks) {
+    for (NSArray *section in _listContent) {
         for (QBAddressBook *addressBook in section)
         {
             if (addressBook.rowSelected)
@@ -397,7 +396,7 @@
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {
 	[_filteredListContent removeAllObjects];
-    for (NSArray *section in _addressBooks) {
+    for (NSArray *section in _listContent) {
         for (QBAddressBook *addressBook in section)
         {
             NSComparisonResult result = [addressBook.name compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchText length])];
@@ -434,7 +433,7 @@
 - (void)dealloc
 {
 	[_filteredListContent release];
-    [_addressBooks release];
+    [_listContent release];
     [_tableView release];
     [_searchBar release];
     [navigationItem release];

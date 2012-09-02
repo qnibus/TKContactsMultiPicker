@@ -17,7 +17,7 @@
 		74E2F3A815F04F7F00D21D1A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E2F39415F04F7F00D21D1A /* AppDelegate.m */; };
 		74E2F3A915F04F7F00D21D1A /* QBAddressBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E2F39715F04F7F00D21D1A /* QBAddressBook.m */; };
 		74E2F3AE15F04F7F00D21D1A /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74E2F3A115F04F7F00D21D1A /* MainViewController.xib */; };
-		74E2F3AF15F04F7F00D21D1A /* QBPeoplePickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74E2F3A215F04F7F00D21D1A /* QBPeoplePickerController.xib */; };
+		74E2F3AF15F04F7F00D21D1A /* QBContactsMultiPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74E2F3A215F04F7F00D21D1A /* QBContactsMultiPickerController.xib */; };
 		74E2F3B215F04FC900D21D1A /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E2F3B015F04FC900D21D1A /* AddressBook.framework */; };
 		74E2F3B315F04FC900D21D1A /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E2F3B115F04FC900D21D1A /* AddressBookUI.framework */; };
 		74E2F3C215F0514600D21D1A /* checkBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 74E2F3BE15F0514600D21D1A /* checkBox.png */; };
@@ -50,7 +50,7 @@
 		74E2F39615F04F7F00D21D1A /* QBAddressBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBAddressBook.h; sourceTree = "<group>"; };
 		74E2F39715F04F7F00D21D1A /* QBAddressBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBAddressBook.m; sourceTree = "<group>"; };
 		74E2F3A115F04F7F00D21D1A /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
-		74E2F3A215F04F7F00D21D1A /* QBPeoplePickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QBPeoplePickerController.xib; sourceTree = "<group>"; };
+		74E2F3A215F04F7F00D21D1A /* QBContactsMultiPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QBContactsMultiPickerController.xib; sourceTree = "<group>"; };
 		74E2F3B015F04FC900D21D1A /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		74E2F3B115F04FC900D21D1A /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		74E2F3BE15F0514600D21D1A /* checkBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkBox.png; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				74E2F3A115F04F7F00D21D1A /* MainViewController.xib */,
-				74E2F3A215F04F7F00D21D1A /* QBPeoplePickerController.xib */,
+				74E2F3A215F04F7F00D21D1A /* QBContactsMultiPickerController.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -268,7 +268,7 @@
 			files = (
 				74E2F36E15F04E4800D21D1A /* InfoPlist.strings in Resources */,
 				74E2F3AE15F04F7F00D21D1A /* MainViewController.xib in Resources */,
-				74E2F3AF15F04F7F00D21D1A /* QBPeoplePickerController.xib in Resources */,
+				74E2F3AF15F04F7F00D21D1A /* QBContactsMultiPickerController.xib in Resources */,
 				74E2F3C215F0514600D21D1A /* checkBox.png in Resources */,
 				74E2F3C315F0514600D21D1A /* checkBox@2x.png in Resources */,
 				74E2F3C415F0514600D21D1A /* uncheckBox.png in Resources */,
