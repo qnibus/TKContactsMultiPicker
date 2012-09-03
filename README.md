@@ -32,6 +32,6 @@ THE SOFTWARE.
 
 ScreenShot
 
-<img src="https://github.com/qnibus/TKContactsMultiPicker/blob/master/Screenshot_1.png">
-<img src="https://github.com/qnibus/TKContactsMultiPicker/blob/master/Screenshot_2.png">
-<img src="https://github.com/qnibus/TKContactsMultiPicker/blob/master/Screenshot_3.png">
+<img src="https://raw.github.com/qnibus/TKContactsMultiPicker/master/Screenshot_1.png">
+<img src="https://raw.github.com/qnibus/TKContactsMultiPicker/master/Screenshot_2.png">
+<img src="https://raw.github.com/qnibus/TKContactsMultiPicker/master/Screenshot_3.png">
