@@ -41,7 +41,8 @@
 {
     TKContactsMultiPickerController *controller = [[[TKContactsMultiPickerController alloc] initWithNibName:@"TKContactsMultiPickerController" bundle:nil] autorelease];
     controller.delegate = self;
-    [self presentModalViewController:controller animated:YES];
+    UINavigationController *navController = [[[UINavigationController alloc] initWithRootViewController:controller] autorelease];
+    [self presentModalViewController:navController animated:YES];
 }
 
 #pragma mark - TKContactsMultiPickerControllerDelegate

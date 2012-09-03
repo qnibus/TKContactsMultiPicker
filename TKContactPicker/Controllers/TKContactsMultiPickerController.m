@@ -24,8 +24,6 @@
 @synthesize savedScopeButtonIndex = _savedScopeButtonIndex;
 @synthesize searchWasActive = _searchWasActive;
 @synthesize searchBar = _searchBar;
-@synthesize navigationBar;
-@synthesize navigationItem;
 
 #pragma mark -
 #pragma mark Initialization
@@ -47,9 +45,8 @@
 {
 	[super viewDidLoad];
     
-    self.navigationController.navigationBar.hidden = YES;
+    [self.navigationItem setTitle:@"Contacts"];
     [self.navigationItem setLeftBarButtonItem:[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismissAction:)] autorelease]];
-    
     [self.navigationItem setRightBarButtonItem:[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveAction:)] autorelease]];
     [self.navigationItem.rightBarButtonItem setEnabled:NO];
     
@@ -380,13 +377,13 @@
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)_searchBar
 {
-	[self.searchDisplayController setActive:NO];
+	[self.searchDisplayController setActive:NO animated:YES];
 	[self.tableView reloadData];
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)_searchBar
 {
-	[self.searchDisplayController setActive:NO];
+	[self.searchDisplayController setActive:NO animated:YES];
 	[self.tableView reloadData];
 }
 
@@ -436,8 +433,6 @@
     [_listContent release];
     [_tableView release];
     [_searchBar release];
-    [navigationItem release];
-    [navigationBar release];
 	[super dealloc];
 }
 
