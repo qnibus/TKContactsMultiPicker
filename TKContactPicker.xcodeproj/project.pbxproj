@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7453F2C115F439670096ADE6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7453F2C015F439670096ADE6 /* README.md */; };
 		74E2F36415F04E4800D21D1A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E2F36315F04E4800D21D1A /* UIKit.framework */; };
 		74E2F36615F04E4800D21D1A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E2F36515F04E4800D21D1A /* Foundation.framework */; };
 		74E2F36815F04E4800D21D1A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E2F36715F04E4800D21D1A /* CoreGraphics.framework */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7453F2C015F439670096ADE6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		74E2F35F15F04E4800D21D1A /* TKContactPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TKContactPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74E2F36315F04E4800D21D1A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		74E2F36515F04E4800D21D1A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -83,6 +85,7 @@
 		74E2F35415F04E4800D21D1A = {
 			isa = PBXGroup;
 			children = (
+				7453F2C015F439670096ADE6 /* README.md */,
 				74E2F36915F04E4800D21D1A /* TKContactPicker */,
 				74E2F36215F04E4800D21D1A /* Frameworks */,
 				74E2F36015F04E4800D21D1A /* Products */,
@@ -256,6 +259,7 @@
 				74E2F3C515F0514600D21D1A /* uncheckBox@2x.png in Resources */,
 				74E2F48D15F099FE00D21D1A /* blank.png in Resources */,
 				74E2F48E15F099FE00D21D1A /* blank@2x.png in Resources */,
+				7453F2C115F439670096ADE6 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
