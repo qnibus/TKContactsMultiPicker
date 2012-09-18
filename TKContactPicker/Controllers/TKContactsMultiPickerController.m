@@ -12,7 +12,7 @@
 
 @interface TKContactsMultiPickerController(PrivateMethod)
 
-- (IBAction)saveAction:(id)sender;
+- (IBAction)doneAction:(id)sender;
 - (IBAction)dismissAction:(id)sender;
 
 @end
@@ -45,10 +45,8 @@
 {
 	[super viewDidLoad];
     
-    [self.navigationItem setTitle:@"Contacts"];
-    [self.navigationItem setLeftBarButtonItem:[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismissAction:)] autorelease]];
-    [self.navigationItem setRightBarButtonItem:[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveAction:)] autorelease]];
-    [self.navigationItem.rightBarButtonItem setEnabled:NO];
+    [self.navigationItem setTitle:NSLocalizedString(@"Contacts", nil)];
+    [self.navigationItem setRightBarButtonItem:[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismissAction:)] autorelease]];
     
     if (self.savedSearchTerm)
 	{
@@ -77,25 +75,25 @@
         CFStringRef abFullName = ABRecordCopyCompositeName(person);
         
         /*
-        Save thumbnail image - performance decreasing
-        UIImage *personImage = nil;
-        if (person != nil && ABPersonHasImageData(person)) {
-            if ( &ABPersonCopyImageDataWithFormat != nil ) {
-                // iOS >= 4.1
-                CFDataRef contactThumbnailData = ABPersonCopyImageDataWithFormat(person, kABPersonImageFormatThumbnail);
-                personImage = [[UIImage imageWithData:(NSData*)contactThumbnailData] thumbnailImage:CGSizeMake(44, 44)];
-                CFRelease(contactThumbnailData);
-                CFDataRef contactImageData = ABPersonCopyImageDataWithFormat(person, kABPersonImageFormatOriginalSize);
-                CFRelease(contactImageData);
-                
-            } else {
-                // iOS < 4.1
-                CFDataRef contactImageData = ABPersonCopyImageData(person);
-                personImage = [[UIImage imageWithData:(NSData*)contactImageData] thumbnailImage:CGSizeMake(44, 44)];
-                CFRelease(contactImageData);
-            }
-        }
-        [addressBook setThumbnail:personImage];
+         Save thumbnail image - performance decreasing
+         UIImage *personImage = nil;
+         if (person != nil && ABPersonHasImageData(person)) {
+         if ( &ABPersonCopyImageDataWithFormat != nil ) {
+         // iOS >= 4.1
+         CFDataRef contactThumbnailData = ABPersonCopyImageDataWithFormat(person, kABPersonImageFormatThumbnail);
+         personImage = [[UIImage imageWithData:(NSData*)contactThumbnailData] thumbnailImage:CGSizeMake(44, 44)];
+         CFRelease(contactThumbnailData);
+         CFDataRef contactImageData = ABPersonCopyImageDataWithFormat(person, kABPersonImageFormatOriginalSize);
+         CFRelease(contactImageData);
+         
+         } else {
+         // iOS < 4.1
+         CFDataRef contactImageData = ABPersonCopyImageData(person);
+         personImage = [[UIImage imageWithData:(NSData*)contactImageData] thumbnailImage:CGSizeMake(44, 44)];
+         CFRelease(contactImageData);
+         }
+         }
+         [addressBook setThumbnail:personImage];
          */
         
         NSString *nameString = (NSString *)abName;
@@ -295,8 +293,6 @@
 		[self tableView:self.tableView accessoryButtonTappedForRowWithIndexPath:indexPath];
 		[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 	}
-    
-    [self.navigationItem.rightBarButtonItem setEnabled:(_selectedCount > 0)];
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
@@ -314,7 +310,10 @@
     // Enabled rightButtonItem
     if (checked) _selectedCount++;
     else _selectedCount--;
-    [self.navigationItem.rightBarButtonItem setEnabled:(_selectedCount > 0 ? YES : NO)];
+    if (_selectedCount > 0)
+        [self.navigationItem setRightBarButtonItem:[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction:)] autorelease]];
+    else
+        [self.navigationItem setRightBarButtonItem:[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismissAction:)] autorelease]];
     
     UITableViewCell *cell =[self.tableView cellForRowAtIndexPath:indexPath];
     UIButton *button = (UIButton *)cell.accessoryView;
@@ -342,7 +341,7 @@
 #pragma mark -
 #pragma mark Save action
 
-- (IBAction)saveAction:(id)sender
+- (IBAction)doneAction:(id)sender
 {
 	NSMutableArray *objects = [NSMutableArray new];
     for (NSArray *section in _listContent) {

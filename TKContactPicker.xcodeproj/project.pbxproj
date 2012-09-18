@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7453F2C115F439670096ADE6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7453F2C015F439670096ADE6 /* README.md */; };
+		746A85331608E3300048C9F7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 746A85321608E3300048C9F7 /* Default-568h@2x.png */; };
 		74E2F36415F04E4800D21D1A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E2F36315F04E4800D21D1A /* UIKit.framework */; };
 		74E2F36615F04E4800D21D1A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E2F36515F04E4800D21D1A /* Foundation.framework */; };
 		74E2F36815F04E4800D21D1A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E2F36715F04E4800D21D1A /* CoreGraphics.framework */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		7453F2C015F439670096ADE6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		746A85321608E3300048C9F7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		74E2F35F15F04E4800D21D1A /* TKContactPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TKContactPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74E2F36315F04E4800D21D1A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		74E2F36515F04E4800D21D1A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -131,9 +133,10 @@
 		74E2F36A15F04E4800D21D1A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				74E2F36B15F04E4800D21D1A /* TKContactPicker-Info.plist */,
+				746A85321608E3300048C9F7 /* Default-568h@2x.png */,
 				74E2F36C15F04E4800D21D1A /* InfoPlist.strings */,
 				74E2F36F15F04E4800D21D1A /* main.m */,
+				74E2F36B15F04E4800D21D1A /* TKContactPicker-Info.plist */,
 				74E2F37115F04E4800D21D1A /* TKContactPicker-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -260,6 +263,7 @@
 				74E2F48D15F099FE00D21D1A /* blank.png in Resources */,
 				74E2F48E15F099FE00D21D1A /* blank@2x.png in Resources */,
 				7453F2C115F439670096ADE6 /* README.md in Resources */,
+				746A85331608E3300048C9F7 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

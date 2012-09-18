@@ -93,7 +93,10 @@
                 
                 [nameButton setFrame:nameButtonRect];
                 [nameButton setAlpha:0.0f];
+                [nameButton.titleLabel setFont:[UIFont systemFontOfSize:11]];
+                [nameButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
                 [nameButton setTitle:ab.name forState:UIControlStateNormal];
+                [nameButton setTitleEdgeInsets:UIEdgeInsetsMake(45, 0, 0, 0)];
                 [self.scrollView addSubview:nameButton];
                 
                 [UIView animateWithDuration:0.2 animations:^{
