@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		7453F2C115F439670096ADE6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7453F2C015F439670096ADE6 /* README.md */; };
 		746A85331608E3300048C9F7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 746A85321608E3300048C9F7 /* Default-568h@2x.png */; };
+		74A07E1D160B29FB0021715C /* TKPeoplePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74A07E1C160B29FB0021715C /* TKPeoplePickerController.m */; };
+		74A07E21160B2A4B0021715C /* TKNoContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74A07E20160B2A4B0021715C /* TKNoContactViewController.m */; };
+		74A07E24160B2D0E0021715C /* TKGroupPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74A07E23160B2D0D0021715C /* TKGroupPickerController.m */; };
+		74A07E27160B2FAB0021715C /* TKGroupPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74A07E25160B2FAB0021715C /* TKGroupPickerController.xib */; };
+		74A07E28160B2FAB0021715C /* TKNoContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74A07E26160B2FAB0021715C /* TKNoContactViewController.xib */; };
 		74E2F36415F04E4800D21D1A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E2F36315F04E4800D21D1A /* UIKit.framework */; };
 		74E2F36615F04E4800D21D1A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E2F36515F04E4800D21D1A /* Foundation.framework */; };
 		74E2F36815F04E4800D21D1A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E2F36715F04E4800D21D1A /* CoreGraphics.framework */; };
@@ -35,6 +40,14 @@
 /* Begin PBXFileReference section */
 		7453F2C015F439670096ADE6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		746A85321608E3300048C9F7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		74A07E1B160B29FB0021715C /* TKPeoplePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPeoplePickerController.h; sourceTree = "<group>"; };
+		74A07E1C160B29FB0021715C /* TKPeoplePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPeoplePickerController.m; sourceTree = "<group>"; };
+		74A07E1F160B2A4B0021715C /* TKNoContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKNoContactViewController.h; sourceTree = "<group>"; };
+		74A07E20160B2A4B0021715C /* TKNoContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKNoContactViewController.m; sourceTree = "<group>"; };
+		74A07E22160B2D0D0021715C /* TKGroupPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKGroupPickerController.h; sourceTree = "<group>"; };
+		74A07E23160B2D0D0021715C /* TKGroupPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKGroupPickerController.m; sourceTree = "<group>"; };
+		74A07E25160B2FAB0021715C /* TKGroupPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKGroupPickerController.xib; sourceTree = "<group>"; };
+		74A07E26160B2FAB0021715C /* TKNoContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKNoContactViewController.xib; sourceTree = "<group>"; };
 		74E2F35F15F04E4800D21D1A /* TKContactPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TKContactPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74E2F36315F04E4800D21D1A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		74E2F36515F04E4800D21D1A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -147,6 +160,12 @@
 			children = (
 				74E2F38E15F04F7F00D21D1A /* TKContactsMultiPickerController.h */,
 				74E2F38F15F04F7F00D21D1A /* TKContactsMultiPickerController.m */,
+				74A07E22160B2D0D0021715C /* TKGroupPickerController.h */,
+				74A07E23160B2D0D0021715C /* TKGroupPickerController.m */,
+				74A07E1F160B2A4B0021715C /* TKNoContactViewController.h */,
+				74A07E20160B2A4B0021715C /* TKNoContactViewController.m */,
+				74A07E1B160B29FB0021715C /* TKPeoplePickerController.h */,
+				74A07E1C160B29FB0021715C /* TKPeoplePickerController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -173,6 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				74E2F3A115F04F7F00D21D1A /* MainViewController.xib */,
+				74A07E25160B2FAB0021715C /* TKGroupPickerController.xib */,
+				74A07E26160B2FAB0021715C /* TKNoContactViewController.xib */,
 				74E2F3A215F04F7F00D21D1A /* TKContactsMultiPickerController.xib */,
 			);
 			path = Xibs;
@@ -264,6 +285,8 @@
 				74E2F48E15F099FE00D21D1A /* blank@2x.png in Resources */,
 				7453F2C115F439670096ADE6 /* README.md in Resources */,
 				746A85331608E3300048C9F7 /* Default-568h@2x.png in Resources */,
+				74A07E27160B2FAB0021715C /* TKGroupPickerController.xib in Resources */,
+				74A07E28160B2FAB0021715C /* TKNoContactViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +304,9 @@
 				74E2F3A915F04F7F00D21D1A /* TKAddressBook.m in Sources */,
 				74E2F47415F0786400D21D1A /* UIImage+TKUtilities.m in Sources */,
 				74E2F47715F0789D00D21D1A /* NSString+TKUtilities.m in Sources */,
+				74A07E1D160B29FB0021715C /* TKPeoplePickerController.m in Sources */,
+				74A07E21160B2A4B0021715C /* TKNoContactViewController.m in Sources */,
+				74A07E24160B2D0E0021715C /* TKGroupPickerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -26,39 +26,10 @@
 @synthesize searchBar = _searchBar;
 
 #pragma mark -
-#pragma mark Initialization
+#pragma mark Craete addressbook ref
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void)reloadAddressBook
 {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        _selectedCount = 0;
-        _listContent = [NSMutableArray new];
-        _filteredListContent = [NSMutableArray new];
-    }
-    return self;
-}
-
-#pragma mark -
-#pragma mark View lifecycle
-
-- (void)viewDidLoad
-{
-	[super viewDidLoad];
-    
-    [self.navigationItem setTitle:NSLocalizedString(@"Contacts", nil)];
-    [self.navigationItem setRightBarButtonItem:[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismissAction:)] autorelease]];
-    
-    if (self.savedSearchTerm)
-	{
-        [self.searchDisplayController setActive:self.searchWasActive];
-        [self.searchDisplayController.searchBar setText:_savedSearchTerm];
-        
-        self.savedSearchTerm = nil;
-    }
-	
-	self.searchDisplayController.searchResultsTableView.scrollEnabled = YES;
-	self.searchDisplayController.searchBar.showsCancelButton = NO;
-    
     // Create addressbook data model
     NSMutableArray *addressBookTemp = [NSMutableArray array];
     ABAddressBookRef addressBooks = ABAddressBookCreate();
@@ -179,6 +150,45 @@
         NSArray *sortedSection = [theCollation sortedArrayFromArray:sectionArray collationStringSelector:@selector(name)];
         [_listContent addObject:sortedSection];
     }
+    [self.tableView reloadData];
+}
+
+#pragma mark -
+#pragma mark Initialization
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+        _selectedCount = 0;
+        _listContent = [NSMutableArray new];
+        _filteredListContent = [NSMutableArray new];
+    }
+    return self;
+}
+
+#pragma mark -
+#pragma mark View lifecycle
+
+- (void)viewDidLoad
+{
+	[super viewDidLoad];
+    
+    [self.navigationItem setLeftBarButtonItem:nil];
+    [self.navigationItem setTitle:NSLocalizedString(@"Contacts", nil)];
+    [self.navigationItem setRightBarButtonItem:[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismissAction:)] autorelease]];
+    
+    if (self.savedSearchTerm)
+	{
+        [self.searchDisplayController setActive:self.searchWasActive];
+        [self.searchDisplayController.searchBar setText:_savedSearchTerm];
+        
+        self.savedSearchTerm = nil;
+    }
+	
+	self.searchDisplayController.searchResultsTableView.scrollEnabled = YES;
+	self.searchDisplayController.searchBar.showsCancelButton = NO;
+
+    [self reloadAddressBook];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -352,16 +362,16 @@
         }
     }
     
-    if ([self.delegate respondsToSelector:@selector(contactsMultiPickerController:didFinishPickingDataWithInfo:)])
-        [self.delegate contactsMultiPickerController:self didFinishPickingDataWithInfo:objects];
+    if ([self.delegate respondsToSelector:@selector(tkContactsMultiPickerController:didFinishPickingDataWithInfo:)])
+        [self.delegate tkContactsMultiPickerController:self didFinishPickingDataWithInfo:objects];
     
 	[objects release];
 }
 
 - (IBAction)dismissAction:(id)sender
 {
-    if ([self.delegate respondsToSelector:@selector(contactsMultiPickerControllerDidCancel:)])
-        [self.delegate contactsMultiPickerControllerDidCancel:self];
+    if ([self.delegate respondsToSelector:@selector(tkContactsMultiPickerControllerDidCancel:)])
+        [self.delegate tkContactsMultiPickerControllerDidCancel:self];
     else
         [self dismissViewControllerAnimated:YES completion:nil];
 }

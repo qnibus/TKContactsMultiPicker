@@ -15,8 +15,8 @@
 @class TKAddressBook, TKContactsMultiPickerController;
 @protocol TKContactsMultiPickerControllerDelegate <NSObject>
 @required
-- (void)contactsMultiPickerController:(TKContactsMultiPickerController*)picker didFinishPickingDataWithInfo:(NSArray*)data;
-- (void)contactsMultiPickerControllerDidCancel:(TKContactsMultiPickerController*)picker;
+- (void)tkContactsMultiPickerController:(TKContactsMultiPickerController*)picker didFinishPickingDataWithInfo:(NSArray*)contacts;
+- (void)tkContactsMultiPickerControllerDidCancel:(TKContactsMultiPickerController*)picker;
 @end
 
 

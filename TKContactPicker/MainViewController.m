@@ -39,15 +39,16 @@
 
 - (IBAction)showPeoplePicker:(id)sender
 {
-    TKContactsMultiPickerController *controller = [[[TKContactsMultiPickerController alloc] initWithNibName:@"TKContactsMultiPickerController" bundle:nil] autorelease];
-    controller.delegate = self;
-    UINavigationController *navController = [[[UINavigationController alloc] initWithRootViewController:controller] autorelease];
-    [self presentModalViewController:navController animated:YES];
+    TKPeoplePickerController *controller = [[[TKPeoplePickerController alloc] initPeoplePicker] autorelease];
+    controller.actionDelegate = self;
+    controller.modalPresentationStyle = UIModalPresentationFullScreen;
+    //[self presentViewController:controller animated:YES completion:nil];
+    [self presentModalViewController:controller animated:YES];
 }
 
 #pragma mark - TKContactsMultiPickerControllerDelegate
 
-- (void)contactsMultiPickerController:(TKContactsMultiPickerController*)picker didFinishPickingDataWithInfo:(NSArray*)data
+- (void)tkPeoplePickerController:(TKPeoplePickerController*)picker didFinishPickingDataWithInfo:(NSArray*)contacts
 {
     [self dismissModalViewControllerAnimated:YES];
     for (id view in self.scrollView.subviews) {
@@ -59,7 +60,7 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         ABAddressBookRef addressBook = ABAddressBookCreate();
-        [data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [contacts enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
             
             TKAddressBook *ab = (TKAddressBook*)obj;
@@ -123,7 +124,7 @@
     });
 }
 
-- (void)contactsMultiPickerControllerDidCancel:(TKContactsMultiPickerController*)picker
+- (void)tkPeoplePickerControllerDidCancel:(TKPeoplePickerController*)picker
 {
     [self dismissModalViewControllerAnimated:YES];
 }

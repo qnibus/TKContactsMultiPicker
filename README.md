@@ -3,10 +3,13 @@ TKContactsMultiPicker
 
 Simple contacts multi picker for iOS (Non ARC).
 This is customizable, simple, fast controller for contacts.
+iOS6 Update patch (Privacy settings & Retina 4inch)
 
 ====================
 
 License
+====================
+
 Copyright 2012 TABKO Inc.
  
 
@@ -31,5 +34,6 @@ THE SOFTWARE.
 ====================
 
 ScreenShot
+====================
 
 <img src="https://raw.github.com/qnibus/TKContactsMultiPicker/master/Screenshot.png">

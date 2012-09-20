@@ -6,9 +6,9 @@
 //  Copyright (c) 2012년 TABKO Inc. All rights reserved.
 //
 
-#import "TKContactsMultiPickerController.h"
+#import "TKPeoplePickerController.h"
 
-@interface MainViewController : UIViewController <TKContactsMultiPickerControllerDelegate>
+@interface MainViewController : UIViewController <UINavigationControllerDelegate, TKPeoplePickerControllerDelegate>
 
 @property (nonatomic, retain) IBOutlet UIScrollView *scrollView;
 
