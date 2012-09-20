@@ -1,7 +1,7 @@
 TKContactsMultiPicker
 ====================
 
-Simple contacts multi picker for iOS.
+Simple contacts multi picker for iOS (Non ARC).
 This is customizable, simple, fast controller for contacts.
 
 ====================
