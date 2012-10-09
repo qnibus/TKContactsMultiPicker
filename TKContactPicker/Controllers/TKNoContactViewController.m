@@ -29,8 +29,8 @@
 {
     [super viewDidLoad];
 
-    [self.navigationController backButtonClear];
-    [self.navigationItem setRightBarButtonItem:[UIBarButtonItem barItemWithTitle:NSLocalizedString(@"Cancel", nil) target:self action:@selector(dismissAction:)]];
+    [self.navigationItem setLeftBarButtonItem:nil];
+    [self.navigationItem setRightBarButtonItem:[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismissAction:)] autorelease]];
 }
 
 - (void)didReceiveMemoryWarning

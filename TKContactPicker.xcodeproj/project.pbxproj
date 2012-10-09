@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		742175C31623E21500386802 /* iconDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 742175C21623E21500386802 /* iconDefault@2x.png */; };
+		742175C61623E21800386802 /* iconDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 742175C51623E21800386802 /* iconDefault.png */; };
 		7453F2C115F439670096ADE6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7453F2C015F439670096ADE6 /* README.md */; };
 		746A85331608E3300048C9F7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 746A85321608E3300048C9F7 /* Default-568h@2x.png */; };
 		74A07E1D160B29FB0021715C /* TKPeoplePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74A07E1C160B29FB0021715C /* TKPeoplePickerController.m */; };
@@ -38,6 +40,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		742175C21623E21500386802 /* iconDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iconDefault@2x.png"; path = "../iconDefault@2x.png"; sourceTree = "<group>"; };
+		742175C51623E21800386802 /* iconDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconDefault.png; path = ../iconDefault.png; sourceTree = "<group>"; };
 		7453F2C015F439670096ADE6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		746A85321608E3300048C9F7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		74A07E1B160B29FB0021715C /* TKPeoplePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPeoplePickerController.h; sourceTree = "<group>"; };
@@ -146,6 +150,8 @@
 		74E2F36A15F04E4800D21D1A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				742175C51623E21800386802 /* iconDefault.png */,
+				742175C21623E21500386802 /* iconDefault@2x.png */,
 				746A85321608E3300048C9F7 /* Default-568h@2x.png */,
 				74E2F36C15F04E4800D21D1A /* InfoPlist.strings */,
 				74E2F36F15F04E4800D21D1A /* main.m */,
@@ -287,6 +293,8 @@
 				746A85331608E3300048C9F7 /* Default-568h@2x.png in Resources */,
 				74A07E27160B2FAB0021715C /* TKGroupPickerController.xib in Resources */,
 				74A07E28160B2FAB0021715C /* TKNoContactViewController.xib in Resources */,
+				742175C31623E21500386802 /* iconDefault@2x.png in Resources */,
+				742175C61623E21800386802 /* iconDefault.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

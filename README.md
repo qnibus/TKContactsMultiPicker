@@ -33,7 +33,16 @@ THE SOFTWARE.
 
 ====================
 
+About
+====================
+
+<a href="http://hapsee.com" target="_blank">Than Happiness through the iLife!</a>
+
+<img src="http://hapsee.com/wp-content/uploads/2012/09/Home-Qnote-Icon.png" alt="Qnote" /> <img src="http://hapsee.com/wp-content/uploads/2012/09/Home-PicTok-Icon.png" alt="PicTok" /> <img src="http://hapsee.com/wp-content/uploads/2012/09/Home-FotoCookie-Icon.png" alt="FotoCookie" /> <img src="http://hapsee.com/wp-content/uploads/2012/09/Home-ThumbPlus-Icon.png" alt="Thumb+" />
+
+====================
+
 ScreenShot
 ====================
 
-<img src="https://raw.github.com/qnibus/TKContactsMultiPicker/master/Screenshot.png">
+<img src="https://raw.github.com/qnibus/TKContactsMultiPicker/master/Screenshot.png" alt="Tabko Contact Multi Picker" />
