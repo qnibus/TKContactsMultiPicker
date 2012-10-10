@@ -32,19 +32,33 @@
 - (void)reloadAddressBook
 {
     // Create addressbook data model
-    NSMutableArray *addressBookTemp = [NSMutableArray array];
+    NSMutableArray *contactsTemp = [NSMutableArray array];
     ABAddressBookRef addressBooks = [(TKPeoplePickerController*)self.navigationController addressBook];
-    CFArrayRef allPeople = ABAddressBookCopyArrayOfAllPeople(addressBooks);
-    CFIndex nPeople = ABAddressBookGetPersonCount(addressBooks);
     
+    CFArrayRef allPeople;
+    CFIndex peopleCount;
+    if (_group) {
+        self.title = _group.name;
+        ABRecordRef groupRecord = ABAddressBookGetGroupWithRecordID(addressBooks, (ABRecordID)_group.recordID);
+        allPeople = ABGroupCopyArrayOfAllMembers(groupRecord);
+        peopleCount = (CFIndex)_group.membersCount;
+    } else {
+        self.title = NSLocalizedString(@"All Contacts", nil);
+        allPeople = ABAddressBookCopyArrayOfAllPeople(addressBooks);
+        peopleCount = ABAddressBookGetPersonCount(addressBooks);
+    }
     
-    for (NSInteger i = 0; i < nPeople; i++)
+    for (NSInteger i = 0; i < peopleCount; i++)
     {
-        TKAddressBook *addressBook = [[TKAddressBook alloc] init];
-        ABRecordRef person = CFArrayGetValueAtIndex(allPeople, i);
-        CFStringRef abName = ABRecordCopyValue(person, kABPersonFirstNameProperty);
-        CFStringRef abLastName = ABRecordCopyValue(person, kABPersonLastNameProperty);
-        CFStringRef abFullName = ABRecordCopyCompositeName(person);
+        ABRecordRef contactRecord = CFArrayGetValueAtIndex(allPeople, i);
+        
+        // Thanks Steph-Fongo!
+        if (!contactRecord) continue;
+        
+        CFStringRef abName = ABRecordCopyValue(contactRecord, kABPersonFirstNameProperty);
+        CFStringRef abLastName = ABRecordCopyValue(contactRecord, kABPersonLastNameProperty);
+        CFStringRef abFullName = ABRecordCopyCompositeName(contactRecord);
+        TKContact *contact = [[TKContact alloc] init];
         
         /*
          Save thumbnail image - performance decreasing
@@ -68,21 +82,24 @@
          [addressBook setThumbnail:personImage];
          */
         
-        NSString *nameString = (NSString *)abName;
+        NSString *fullNameString;
+        NSString *firstString = (NSString *)abName;
         NSString *lastNameString = (NSString *)abLastName;
         
         if ((id)abFullName != nil) {
-            nameString = (NSString *)abFullName;
+            fullNameString = (NSString *)abFullName;
         } else {
             if ((id)abLastName != nil)
             {
-                nameString = [NSString stringWithFormat:@"%@ %@", nameString, lastNameString];
+                fullNameString = [NSString stringWithFormat:@"%@ %@", firstString, lastNameString];
             }
         }
         
-        addressBook.name = nameString;
-        addressBook.recordID = (int)ABRecordGetRecordID(person);;
-        addressBook.rowSelected = NO;
+        contact.name = fullNameString;
+        contact.recordID = (int)ABRecordGetRecordID(contactRecord);
+        contact.rowSelected = NO;
+        contact.lastName = (NSString*)abLastName;
+        contact.firstName = (NSString*)abName;
         
         ABPropertyID multiProperties[] = {
             kABPersonPhoneProperty,
@@ -91,7 +108,7 @@
         NSInteger multiPropertiesTotal = sizeof(multiProperties) / sizeof(ABPropertyID);
         for (NSInteger j = 0; j < multiPropertiesTotal; j++) {
             ABPropertyID property = multiProperties[j];
-            ABMultiValueRef valuesRef = ABRecordCopyValue(person, property);
+            ABMultiValueRef valuesRef = ABRecordCopyValue(contactRecord, property);
             NSInteger valuesCount = 0;
             if (valuesRef != nil) valuesCount = ABMultiValueGetCount(valuesRef);
             
@@ -104,11 +121,11 @@
                 CFStringRef value = ABMultiValueCopyValueAtIndex(valuesRef, k);
                 switch (j) {
                     case 0: {// Phone number
-                        addressBook.tel = [(NSString*)value telephoneWithReformat];
+                        contact.tel = [(NSString*)value telephoneWithReformat];
                         break;
                     }
                     case 1: {// Email
-                        addressBook.email = (NSString*)value;
+                        contact.email = (NSString*)value;
                         break;
                     }
                 }
@@ -117,23 +134,26 @@
             CFRelease(valuesRef);
         }
         
-        [addressBookTemp addObject:addressBook];
-        [addressBook release];
+        [contactsTemp addObject:contact];
+        [contact release];
         
         if (abName) CFRelease(abName);
         if (abLastName) CFRelease(abLastName);
         if (abFullName) CFRelease(abFullName);
     }
     
-    CFRelease(allPeople);
-//    CFRelease(addressBooks);
+    if (allPeople) CFRelease(allPeople);
     
     // Sort data
     UILocalizedIndexedCollation *theCollation = [UILocalizedIndexedCollation currentCollation];
-    for (TKAddressBook *addressBook in addressBookTemp) {
-        NSInteger sect = [theCollation sectionForObject:addressBook
-                                collationStringSelector:@selector(name)];
-        addressBook.sectionNumber = sect;
+    
+    // Thanks Steph-Fongo!
+    SEL sorter = ABPersonGetSortOrdering() == kABPersonSortByFirstName ? NSSelectorFromString(@"sorterFirstName") : NSSelectorFromString(@"sorterLastName");
+    
+    for (TKContact *contact in contactsTemp) {
+        NSInteger sect = [theCollation sectionForObject:contact
+                                collationStringSelector:sorter];
+        contact.sectionNumber = sect;
     }
     
     NSInteger highSection = [[theCollation sectionTitles] count];
@@ -143,12 +163,12 @@
         [sectionArrays addObject:sectionArray];
     }
     
-    for (TKAddressBook *addressBook in addressBookTemp) {
-        [(NSMutableArray *)[sectionArrays objectAtIndex:addressBook.sectionNumber] addObject:addressBook];
+    for (TKContact *contact in contactsTemp) {
+        [(NSMutableArray *)[sectionArrays objectAtIndex:contact.sectionNumber] addObject:contact];
     }
     
     for (NSMutableArray *sectionArray in sectionArrays) {
-        NSArray *sortedSection = [theCollation sortedArrayFromArray:sectionArray collationStringSelector:@selector(name)];
+        NSArray *sortedSection = [theCollation sortedArrayFromArray:sectionArray collationStringSelector:sorter];
         [_listContent addObject:sortedSection];
     }
     [self.tableView reloadData];
@@ -157,9 +177,10 @@
 #pragma mark -
 #pragma mark Initialization
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithGroup:(TKGroup*)group
 {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+    if (self = [super initWithNibName:NSStringFromClass([self class]) bundle:nil]) {
+        self.group = group;
         _selectedCount = 0;
         _listContent = [NSMutableArray new];
         _filteredListContent = [NSMutableArray new];
@@ -269,14 +290,14 @@
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	}
 	
-	TKAddressBook *addressBook = nil;
+	TKContact *contact = nil;
 	if (tableView == self.searchDisplayController.searchResultsTableView)
-        addressBook = (TKAddressBook *)[_filteredListContent objectAtIndex:indexPath.row];
+        contact = (TKContact *)[_filteredListContent objectAtIndex:indexPath.row];
 	else
-        addressBook = (TKAddressBook *)[[_listContent objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+        contact = (TKContact *)[[_listContent objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     
-    if ([[addressBook.name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] > 0) {
-        cell.textLabel.text = addressBook.name;
+    if ([[contact.name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] > 0) {
+        cell.textLabel.text = contact.name;
     } else {
         cell.textLabel.font = [UIFont italicSystemFontOfSize:cell.textLabel.font.pointSize];
         cell.textLabel.text = @"No Name";
@@ -287,7 +308,7 @@
 	[button setBackgroundImage:[UIImage imageNamed:@"uncheckBox.png"] forState:UIControlStateNormal];
     [button setBackgroundImage:[UIImage imageNamed:@"checkBox.png"] forState:UIControlStateSelected];
 	[button addTarget:self action:@selector(checkButtonTapped:event:) forControlEvents:UIControlEventTouchUpInside];
-    [button setSelected:addressBook.rowSelected];
+    [button setSelected:contact.rowSelected];
     
 	cell.accessoryView = button;
 	
@@ -308,15 +329,15 @@
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-	TKAddressBook *addressBook = nil;
+	TKContact *contact = nil;
     
 	if (tableView == self.searchDisplayController.searchResultsTableView)
-		addressBook = (TKAddressBook*)[_filteredListContent objectAtIndex:indexPath.row];
+		contact = (TKContact*)[_filteredListContent objectAtIndex:indexPath.row];
 	else
-        addressBook = (TKAddressBook*)[[_listContent objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+        contact = (TKContact*)[[_listContent objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     
-    BOOL checked = !addressBook.rowSelected;
-    addressBook.rowSelected = checked;
+    BOOL checked = !contact.rowSelected;
+    contact.rowSelected = checked;
     
     // Enabled rightButtonItem
     if (checked) _selectedCount++;
@@ -356,10 +377,10 @@
 {
 	NSMutableArray *objects = [NSMutableArray new];
     for (NSArray *section in _listContent) {
-        for (TKAddressBook *addressBook in section)
+        for (TKContact *contact in section)
         {
-            if (addressBook.rowSelected)
-                [objects addObject:addressBook];
+            if (contact.rowSelected)
+                [objects addObject:contact];
         }
     }
     
@@ -404,12 +425,12 @@
 {
 	[_filteredListContent removeAllObjects];
     for (NSArray *section in _listContent) {
-        for (TKAddressBook *addressBook in section)
+        for (TKContact *contact in section)
         {
-            NSComparisonResult result = [addressBook.name compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchText length])];
+            NSComparisonResult result = [contact.name compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchText length])];
             if (result == NSOrderedSame)
             {
-                [_filteredListContent addObject:addressBook];
+                [_filteredListContent addObject:contact];
             }
         }
     }
@@ -439,6 +460,7 @@
 
 - (void)dealloc
 {
+    [_group release];
 	[_filteredListContent release];
     [_listContent release];
     [_tableView release];

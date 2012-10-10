@@ -42,8 +42,7 @@
     TKPeoplePickerController *controller = [[[TKPeoplePickerController alloc] initPeoplePicker] autorelease];
     controller.actionDelegate = self;
     controller.modalPresentationStyle = UIModalPresentationFullScreen;
-    //[self presentViewController:controller animated:YES completion:nil];
-    [self presentModalViewController:controller animated:YES];
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 #pragma mark - TKContactsMultiPickerControllerDelegate
@@ -63,8 +62,8 @@
         [contacts enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
             
-            TKAddressBook *ab = (TKAddressBook*)obj;
-            NSNumber *personID = [NSNumber numberWithInt:ab.recordID];
+            TKContact *contact = (TKContact*)obj;
+            NSNumber *personID = [NSNumber numberWithInt:contact.recordID];
             ABRecordID abRecordID = (ABRecordID)[personID intValue];
             ABRecordRef abPerson = ABAddressBookGetPersonWithRecordID(addressBook, abRecordID);
             
@@ -96,7 +95,7 @@
                 [nameButton setAlpha:0.0f];
                 [nameButton.titleLabel setFont:[UIFont systemFontOfSize:11]];
                 [nameButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-                [nameButton setTitle:ab.name forState:UIControlStateNormal];
+                [nameButton setTitle:contact.name forState:UIControlStateNormal];
                 [nameButton setTitleEdgeInsets:UIEdgeInsetsMake(45, 0, 0, 0)];
                 [self.scrollView addSubview:nameButton];
                 

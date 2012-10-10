@@ -7,6 +7,25 @@ iOS6 Update patch (Privacy settings & Retina 4inch)
 
 ====================
 
+Usage
+====================
+
+As shown below where you want to put your code
+<pre>
+TKPeoplePickerController *controller = [[[TKPeoplePickerController alloc] initPeoplePicker] autorelease];
+controller.actionDelegate = self;
+controller.modalPresentationStyle = UIModalPresentationFullScreen;
+[self presentViewController:controller animated:YES completion:nil];
+</pre>
+
+<pre>
+Delegate, using the contact information processing
+- (void)tkPeoplePickerController:(TKPeoplePickerController*)picker didFinishPickingDataWithInfo:(NSArray*)contacts;
+- (void)tkPeoplePickerControllerDidCancel:(TKPeoplePickerController*)picker;
+</pre>
+
+====================
+
 License
 ====================
 
@@ -33,7 +52,7 @@ THE SOFTWARE.
 
 ====================
 
-About
+Our works
 ====================
 
 <a href="http://hapsee.com" target="_blank">Than Happiness through the iLife!</a>

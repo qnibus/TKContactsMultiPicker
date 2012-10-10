@@ -46,7 +46,7 @@
 {
     _addressBook = ABAddressBookCreate();
     
-    TKContactsMultiPickerController *contactMultiController = [[TKContactsMultiPickerController alloc] initWithNibName:NSStringFromClass([_contactController class]) bundle:nil];
+    TKContactsMultiPickerController *contactMultiController = [[TKContactsMultiPickerController alloc] initWithGroup:nil];
     contactMultiController.delegate = self;
     [self pushViewController:contactMultiController animated:NO];
     self.contactController = contactMultiController;
@@ -94,7 +94,7 @@
 
 - (void)dealloc
 {
-    CFRelease(_addressBook);
+    if (_addressBook) CFRelease(_addressBook);
     [_groupController release];
     [_contactController release];
     [super dealloc];
