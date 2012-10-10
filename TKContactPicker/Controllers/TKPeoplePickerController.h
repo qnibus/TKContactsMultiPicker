@@ -19,6 +19,7 @@
 
 @interface TKPeoplePickerController : UINavigationController <TKGroupPickerControllerDelegate, TKContactsMultiPickerControllerDelegate, TKNoContactViewControllerDelegate>
 
+@property (nonatomic, assign) ABAddressBookRef addressBook;
 @property (nonatomic, assign) id<TKPeoplePickerControllerDelegate> actionDelegate;
 @property (nonatomic, retain) TKGroupPickerController *groupController;
 @property (nonatomic, retain) TKContactsMultiPickerController *contactController;

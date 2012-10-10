@@ -6,6 +6,7 @@
 //  Copyright (c) 2012년 TABKO Inc. All rights reserved.
 //
 
+#import "TKPeoplePickerController.h"
 #import "TKContactsMultiPickerController.h"
 #import "NSString+TKUtilities.h"
 #import "UIImage+TKUtilities.h"
@@ -32,7 +33,7 @@
 {
     // Create addressbook data model
     NSMutableArray *addressBookTemp = [NSMutableArray array];
-    ABAddressBookRef addressBooks = ABAddressBookCreate();
+    ABAddressBookRef addressBooks = [(TKPeoplePickerController*)self.navigationController addressBook];
     CFArrayRef allPeople = ABAddressBookCopyArrayOfAllPeople(addressBooks);
     CFIndex nPeople = ABAddressBookGetPersonCount(addressBooks);
     
@@ -125,7 +126,7 @@
     }
     
     CFRelease(allPeople);
-    CFRelease(addressBooks);
+//    CFRelease(addressBooks);
     
     // Sort data
     UILocalizedIndexedCollation *theCollation = [UILocalizedIndexedCollation currentCollation];
@@ -259,7 +260,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	static NSString *kCustomCellID = @"QBPeoplePickerControllerCell";
+	static NSString *kCustomCellID = @"TKPeoplePickerControllerCell";
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCustomCellID];
 	if (cell == nil)
 	{

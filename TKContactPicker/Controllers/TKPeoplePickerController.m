@@ -17,6 +17,7 @@
 @end
 
 @implementation TKPeoplePickerController
+@synthesize addressBook = _addressBook;
 @synthesize actionDelegate = _actionDelegate;
 @synthesize groupController = _groupController;
 @synthesize contactController = _contactController;
@@ -43,7 +44,9 @@
 
 - (void)presentContactsMultiPickerController
 {
-    TKContactsMultiPickerController *contactMultiController = [[TKContactsMultiPickerController alloc] initWithNibName:NSStringFromClass([TKContactsMultiPickerController class]) bundle:nil];
+    _addressBook = ABAddressBookCreate();
+    
+    TKContactsMultiPickerController *contactMultiController = [[TKContactsMultiPickerController alloc] initWithNibName:NSStringFromClass([_contactController class]) bundle:nil];
     contactMultiController.delegate = self;
     [self pushViewController:contactMultiController animated:NO];
     self.contactController = contactMultiController;
@@ -57,7 +60,7 @@
     self = [super initWithRootViewController:self.groupController];
     if (self) {
         if (!IOS_VERSION_LESS_THAN(@"6.0")) {
-            ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, NULL);
+            ABAddressBookRef addressBookRef =  ABAddressBookCreateWithOptions(NULL, NULL);
             switch (ABAddressBookGetAuthorizationStatus()) {
                 case kABAuthorizationStatusNotDetermined: {
                     ABAddressBookRequestAccessWithCompletion(addressBookRef, ^(bool granted, CFErrorRef error) {
@@ -91,6 +94,7 @@
 
 - (void)dealloc
 {
+    CFRelease(_addressBook);
     [_groupController release];
     [_contactController release];
     [super dealloc];
