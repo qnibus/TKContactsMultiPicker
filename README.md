@@ -1,9 +1,18 @@
-TKContactsMultiPicker
+Feature
 ====================
 
 Simple contacts multi picker for iOS (Non ARC).
 This is customizable, simple, fast controller for contacts.
 iOS6 Update patch (Privacy settings & Retina 4inch)
+
+<ul>
+    <li>Supported iOS6</li>
+    <li>Non ARC</li>
+    <li>Completed memory leak test</li>
+    <li>Person multi select</li>
+    <li>Group select</li>
+    <li>Supported LocalizedIndexedCollation</li>
+</ul>
 
 ====================
 
@@ -18,8 +27,8 @@ controller.modalPresentationStyle = UIModalPresentationFullScreen;
 [self presentViewController:controller animated:YES completion:nil];
 </pre>
 
-<pre>
 Delegate, using the contact information processing
+<pre>
 - (void)tkPeoplePickerController:(TKPeoplePickerController*)picker didFinishPickingDataWithInfo:(NSArray*)contacts;
 - (void)tkPeoplePickerControllerDidCancel:(TKPeoplePickerController*)picker;
 </pre>
@@ -64,4 +73,4 @@ Our works
 ScreenShot
 ====================
 
-<img src="https://raw.github.com/qnibus/TKContactsMultiPicker/master/Screenshot.png" alt="Tabko Contact Multi Picker" />
+<img src="https://raw.github.com/qnibus/TKContactsMultiPicker/master/Screenshot1.png" alt="Tabko Contact Multi Picker" /> &nbsp; <img src="https://raw.github.com/qnibus/TKContactsMultiPicker/master/Screenshot2.png" alt="Tabko Contact Multi Picker" />
